@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="LearnSphere offers professional online courses, quizzes, and progress tracking for modern learners.">
+    <title>LearnSphere | Professional Online Learning</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="site-header">
+    <div class="brand-block">
+        <div>
+            <p class="eyebrow">LearnSphere</p>
+            <h1>Professional learning for modern careers</h1>
+            <p class="hero-copy">Explore structured courses, expert-designed quizzes, and progress insights tailored for ambitious learners.</p>
+        </div>
+        <div class="user-chip">
+            <span>Welcome,</span>
+            <strong id="usernameDisplay"></strong>
+        </div>
+    </div>
+
+    <div class="header-actions">
+        <nav class="main-nav" aria-label="Primary navigation">
+            <a href="index.html" class="active">Home</a>
+            <a href="courses.html">Courses</a>
+            <a href="quiz.html">Quiz</a>
+            <a href="progress.html">Progress</a>
+            <a href="essays.html">Essays</a>
+            <a href="contact.html">Contact</a>
+        </nav>
+        <div class="action-group">
+            <button class="ghost-button" onclick="toggleDarkMode()">Theme</button>
+            <button class="ghost-button danger" onclick="logout()">Logout</button>
+        </div>
+    </div>
+</header>
+
+<main class="page-container">
+    <section class="hero-panel">
+        <div class="hero-copy-panel">
+            <span class="section-label">Learn with confidence</span>
+            <h2>Advance your skills with curated courses, real quizzes, and written assessments.</h2>
+            <p>Track your progress, practice with interactive challenges, and complete professional learning paths designed for web development and digital careers.</p>
+            <div class="hero-buttons">
+                <a href="courses.html" class="action-button">Browse courses</a>
+                <a href="quiz.html" class="secondary-button">Try a quiz</a>
+            </div>
+        </div>
+        <div class="hero-summary-card card">
+            <h3>Learning highlights</h3>
+            <ul class="feature-list">
+                <li>6 expert paths with interactive quizzes</li>
+                <li>Essay-based review and confidence scoring</li>
+                <li>Visual progress dashboard</li>
+                <li>Responsive and polished learning experience</li>
+            </ul>
+        </div>
+    </section>
+
+    <section class="overview-grid">
+        <article class="metric-card card">
+            <h3>Professional Courses</h3>
+            <p>Six modern tracks covering HTML, CSS, JavaScript, Python, Data Science, and UX fundamentals.</p>
+        </article>
+        <article class="metric-card card">
+            <h3>Interactive Quizzes</h3>
+            <p>Timed practice with multiple choice and essay-style reflections for deeper understanding.</p>
+        </article>
+        <article class="metric-card card">
+            <h3>Progress Insights</h3>
+            <p>Track completed modules and see your mastery score across every course.</p>
+        </article>
+        <article class="metric-card card">
+            <h3>Responsive Experience</h3>
+            <p>Study on desktop or tablet with an interface designed for focus and clarity.</p>
+        </article>
+    </section>
+
+    <section class="featured-courses">
+        <div class="section-heading">
+            <h2>Featured learning paths</h2>
+            <p>Pick a skill track and progress through practical modules with guided tasks.</p>
+        </div>
+        <div class="card-grid">
+            <article class="course-card card">
+                <span class="course-badge">HTML</span>
+                <h3>HTML Fundamentals</h3>
+                <p>Learn semantic page structure, accessibility, forms, and content layout.</p>
+                <p class="course-meta">8 modules · Beginner friendly</p>
+            </article>
+            <article class="course-card card">
+                <span class="course-badge accent">CSS</span>
+                <h3>CSS Design & Layout</h3>
+                <p>Create polished page designs with responsive grids, typography, and effects.</p>
+                <p class="course-meta">7 modules · Visual styling</p>
+            </article>
+            <article class="course-card card">
+                <span class="course-badge">JavaScript</span>
+                <h3>JavaScript Essentials</h3>
+                <p>Build interactive experiences, DOM logic, and dynamic application behavior.</p>
+                <p class="course-meta">10 modules · Hands-on practice</p>
+            </article>
+        </div>
+    </section>
+</main>
+
+<footer class="site-footer">
+    <p>&copy; 2026 LearnSphere. Crafting professional learning journeys.</p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

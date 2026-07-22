@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Take LearnSphere quiz challenges and save your essay responses for ongoing review.">
+    <title>LearnSphere | Quiz</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="site-header">
+    <div class="brand-block">
+        <div>
+            <p class="eyebrow">Knowledge check</p>
+            <h1>Interactive quiz and written reflection</h1>
+            <p class="hero-copy">Test your learning with multiple-choice questions, then reflect with an essay response.</p>
+        </div>
+        <div class="user-chip">
+            <span>Student</span>
+            <strong id="usernameDisplay"></strong>
+        </div>
+    </div>
+
+    <div class="header-actions">
+        <nav class="main-nav" aria-label="Primary navigation">
+            <a href="index.html">Home</a>
+            <a href="courses.html">Courses</a>
+            <a href="quiz.html" class="active">Quiz</a>
+            <a href="progress.html">Progress</a>
+            <a href="essays.html">Essays</a>
+            <a href="contact.html">Contact</a>
+        </nav>
+        <div class="action-group">
+            <button class="ghost-button" onclick="toggleDarkMode()">Theme</button>
+            <button class="ghost-button danger" onclick="logout()">Logout</button>
+        </div>
+    </div>
+</header>
+
+<main class="page-container">
+    <section class="quiz-section">
+        <article class="card quiz-card">
+            <h2>Quick knowledge check</h2>
+            <p class="section-label">Answer the questions below and then submit your essay response.</p>
+
+            <div class="quiz-question">
+                <p>1. Which HTML tag defines the main heading on a page?</p>
+                <label><input type="radio" name="q1" value="h1"> &lt;h1&gt;</label>
+                <label><input type="radio" name="q1" value="header"> &lt;header&gt;</label>
+                <label><input type="radio" name="q1" value="title"> &lt;title&gt;</label>
+            </div>
+
+            <div class="quiz-question">
+                <p>2. Which CSS property controls the space inside an element?</p>
+                <label><input type="radio" name="q2" value="margin"> margin</label>
+                <label><input type="radio" name="q2" value="padding"> padding</label>
+                <label><input type="radio" name="q2" value="border"> border</label>
+            </div>
+
+            <div class="quiz-question">
+                <p>3. In JavaScript, which keyword declares a variable that can be reassigned?</p>
+                <label><input type="radio" name="q3" value="const"> const</label>
+                <label><input type="radio" name="q3" value="let"> let</label>
+                <label><input type="radio" name="q3" value="var"> var</label>
+            </div>
+
+            <div class="quiz-question">
+                <p>4. Essay question: Briefly explain how semantic HTML improves accessibility.</p>
+                <textarea id="essayAnswer" rows="6" placeholder="Write at least 50 characters..."></textarea>
+            </div>
+            <div class="quiz-question">
+                <p>5. Essay question: Describe how CSS variables and utility classes help maintain large style systems.</p>
+                <textarea id="essayAnswer2" rows="6" placeholder="Write at least 50 characters..."></textarea>
+            </div>
+            <div class="quiz-question">
+                <p>6. Essay question: Explain why using let instead of var improves JavaScript code quality.</p>
+                <textarea id="essayAnswer3" rows="6" placeholder="Write at least 50 characters..."></textarea>
+            </div>
+
+            <div class="card-actions">
+                <button onclick="submitQuiz()">Submit quiz</button>
+                <button onclick="resetQuiz()" class="ghost-button">Reset answers</button>
+            </div>
+
+            <div id="quizResult" class="quiz-result"></div>
+        </article>
+    </section>
+</main>
+
+<footer class="site-footer">
+    <p>&copy; 2026 LearnSphere. Measure your progress with confidence.</p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

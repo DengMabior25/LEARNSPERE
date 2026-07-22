@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Contact LearnSphere support for help with courses, quizzes, and progress tracking.">
+    <meta property="og:title" content="LearnSphere | Contact">
+    <meta property="og:description" content="Contact LearnSphere support for help with courses, quizzes, and progress tracking.">
+    <title>LearnSphere | Contact</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="site-header">
+    <div class="brand-block">
+        <div>
+            <p class="eyebrow">Stay connected</p>
+            <h1>Get support or ask a question</h1>
+            <p class="hero-copy">Send us a message and we will respond with helpful resources and course guidance.</p>
+        </div>
+        <div class="user-chip">
+            <span>Your account</span>
+            <strong id="usernameDisplay"></strong>
+        </div>
+    </div>
+
+    <div class="header-actions">
+        <nav class="main-nav">
+            <a href="index.html">Home</a>
+            <a href="courses.html">Courses</a>
+            <a href="quiz.html">Quiz</a>
+            <a href="progress.html">Progress</a>
+            <a href="contact.html" class="active">Contact</a>
+        </nav>
+        <div class="action-group">
+            <button class="ghost-button" onclick="toggleDarkMode()">Theme</button>
+            <button class="ghost-button danger" onclick="logout()">Logout</button>
+        </div>
+    </div>
+</header>
+
+<main class="page-container">
+    <section class="contact-grid">
+        <article class="card contact-card">
+            <h2>Contact support</h2>
+            <p>If you have questions about courses, quizzes, or progress tracking, just send a message and we'll reply as soon as possible.</p>
+            <ul class="contact-info">
+                <li>Email: support@learnsphere.com</li>
+                <li>Hours: Mon–Fri, 8am–6pm</li>
+                <li>Response time: 24–48 hours</li>
+            </ul>
+        </article>
+
+        <article class="card contact-card">
+            <h2>Send a message</h2>
+            <form id="contactForm" onsubmit="submitContact(event)">
+                <label>Name</label>
+                <input id="contactName" type="text" placeholder="Your name" required>
+                <label>Email</label>
+                <input id="contactEmail" type="email" placeholder="you@example.com" required>
+                <label>Message</label>
+                <textarea id="contactMessage" rows="6" placeholder="How can we help you?" required></textarea>
+                <button type="submit">Send message</button>
+                <p id="contactFeedback" class="form-note"></p>
+            </form>
+        </article>
+    </section>
+</main>
+
+<footer class="site-footer">
+    <p>&copy; 2026 LearnSphere. Your learning partner for professional growth.</p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
