@@ -79,20 +79,124 @@ const quizAnswers = {
     q3: "let"
 };
 
-function registerUser() {
-    const username = document.getElementById("regUsername").value.trim();
-    const password = document.getElementById("regPassword").value.trim();
+let pendingRegistration = null;
+let verificationChallenge = null;
 
-    if (!username || !password) {
-        alert("Enter a username and password.");
+function setRegistrationMessage(message, isError = false) {
+    const status = document.getElementById("registrationMessage");
+    status.textContent = message;
+    status.classList.toggle("error", isError);
+}
+
+async function requestConfirmationCode(email) {
+    const response = await fetch("/api/confirmation", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ action: "send", email })
+    });
+    const result = await response.json();
+
+    if (!response.ok) {
+        throw new Error(result.error || `Could not send a confirmation code (HTTP ${response.status}).`);
+    }
+
+    verificationChallenge = result.challenge;
+}
+
+async function registerUser(event) {
+    event.preventDefault();
+    pendingRegistration = {
+        email: document.getElementById("regEmail").value.trim().toLowerCase(),
+        username: document.getElementById("regUsername").value.trim(),
+        password: document.getElementById("regPassword").value
+    };
+
+    const button = document.getElementById("registerButton");
+    button.disabled = true;
+    setRegistrationMessage("Sending your confirmation code...");
+
+    try {
+        await requestConfirmationCode(pendingRegistration.email);
+        document.getElementById("verificationEmail").textContent = pendingRegistration.email;
+        document.getElementById("registrationForm").hidden = true;
+        document.getElementById("verificationForm").hidden = false;
+        document.getElementById("confirmationCode").focus();
+        setRegistrationMessage("Confirmation code sent. Check your inbox and spam folder.");
+    } catch (error) {
+        setRegistrationMessage(error.message, true);
+    } finally {
+        button.disabled = false;
+    }
+}
+
+async function verifyRegistrationCode(event) {
+    event.preventDefault();
+    const button = document.getElementById("verifyButton");
+    button.disabled = true;
+    setRegistrationMessage("Verifying your email...");
+
+    try {
+        const response = await fetch("/api/confirmation", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+                action: "verify",
+                email: pendingRegistration.email,
+                code: document.getElementById("confirmationCode").value.trim(),
+                challenge: verificationChallenge
+            })
+        });
+        const result = await response.json();
+
+        if (!response.ok) {
+            throw new Error(result.error || `Could not verify the code (HTTP ${response.status}).`);
+        }
+
+        localStorage.setItem("username", pendingRegistration.username);
+        localStorage.setItem("email", pendingRegistration.email);
+        localStorage.setItem("password", pendingRegistration.password);
+        localStorage.setItem("loggedIn", "true");
+        window.location.href = "/";
+    } catch (error) {
+        setRegistrationMessage(error.message, true);
+    } finally {
+        button.disabled = false;
+    }
+}
+
+async function resendConfirmationCode() {
+    if (!pendingRegistration) {
+        setRegistrationMessage("Enter your registration details again to request a code.", true);
         return;
     }
 
-    localStorage.setItem("username", username);
-    localStorage.setItem("password", password);
-    localStorage.setItem("loggedIn", "true");
+    const button = document.getElementById("resendButton");
+    button.disabled = true;
+    setRegistrationMessage("Sending a new confirmation code...");
 
-    window.location.href = "/";
+    try {
+        await requestConfirmationCode(pendingRegistration.email);
+        document.getElementById("confirmationCode").value = "";
+        setRegistrationMessage("A new confirmation code was sent. Use the latest code.");
+    } catch (error) {
+        setRegistrationMessage(error.message, true);
+    } finally {
+        button.disabled = false;
+    }
+}
+
+function editRegistration() {
+    verificationChallenge = null;
+    document.getElementById("verificationForm").hidden = true;
+    document.getElementById("registrationForm").hidden = false;
+    setRegistrationMessage("");
+}
+
+function initRegistration() {
+    const resendButton = document.getElementById("resendButton");
+    if (resendButton) {
+        resendButton.addEventListener("click", resendConfirmationCode);
+    }
 }
 
 function loginUser() {
@@ -411,6 +515,7 @@ window.addEventListener("DOMContentLoaded", function () {
     protectPage();
     updateProgress();
     initPageTransitions();
+    initRegistration();
 
     const courseSummary = document.getElementById("courseSummary");
     if (courseSummary) {

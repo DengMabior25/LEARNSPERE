@@ -496,6 +496,35 @@ textarea:focus {
     color: #f8fafc;
 }
 
+.auth-panel form button {
+    width: 100%;
+    margin-top: 18px;
+}
+
+.auth-panel form .ghost-button {
+    background: rgba(255,255,255,0.08);
+    color: #e2e8f0;
+}
+
+.auth-panel form button:disabled {
+    cursor: wait;
+    opacity: 0.7;
+}
+
+.auth-panel [hidden] {
+    display: none;
+}
+
+.form-message {
+    margin-top: 14px;
+    color: #86efac;
+    overflow-wrap: anywhere;
+}
+
+.form-message.error {
+    color: #fca5a5;
+}
+
 .auth-panel h1 {
     margin-bottom: 14px;
 }
