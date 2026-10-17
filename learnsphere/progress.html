@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Track your LearnSphere course completion and quiz progress with a polished dashboard.">
+    <title>LearnSphere | Progress</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="site-header">
+    <div class="brand-block">
+        <div>
+            <p class="eyebrow">Progress dashboard</p>
+            <h1>See your learning growth</h1>
+            <p class="hero-copy">A clear summary of completed modules, quiz performance, and course milestones.</p>
+        </div>
+        <div class="user-chip">
+            <span>Current learner</span>
+            <strong id="usernameDisplay"></strong>
+        </div>
+    </div>
+
+    <div class="header-actions">
+        <nav class="main-nav" aria-label="Primary navigation">
+            <a href="index.html">Home</a>
+            <a href="courses.html">Courses</a>
+            <a href="quiz.html">Quiz</a>
+            <a href="progress.html" class="active">Progress</a>
+            <a href="essays.html">Essays</a>
+            <a href="contact.html">Contact</a>
+        </nav>
+        <div class="action-group">
+            <button class="ghost-button" onclick="toggleDarkMode()">Theme</button>
+            <button class="ghost-button danger" onclick="logout()">Logout</button>
+        </div>
+    </div>
+</header>
+
+<main class="page-container">
+    <section class="progress-panel card">
+        <div class="progress-summary">
+            <div>
+                <p class="section-label">Overall completion</p>
+                <h2 id="overallPercent">0%</h2>
+                <p id="progressNote">Complete modules and quizzes to improve your mastery score.</p>
+            </div>
+            <div class="progress-bar large">
+                <div id="overallFill" class="progress"></div>
+            </div>
+        </div>
+    </section>
+
+    <section class="dashboard-stats-grid">
+        <article class="metric-card card">
+            <h3>Quiz submissions</h3>
+            <p><strong id="quizCount">0</strong> completed</p>
+        </article>
+        <article class="metric-card card">
+            <h3>Average quiz score</h3>
+            <p><strong id="quizAverage">0%</strong></p>
+        </article>
+        <article class="metric-card card">
+            <h3>Saved essays</h3>
+            <p><strong id="essayCount">0</strong> responses</p>
+        </article>
+        <article class="metric-card card">
+            <h3>Latest quiz score</h3>
+            <p><strong id="latestStoredScore">N/A</strong></p>
+        </article>
+    </section>
+
+    <section class="course-progress-grid">
+        <article class="course-progress-card card">
+            <h3>HTML Fundamentals</h3>
+            <div class="progress-row">
+                <span id="progress-html">0 / 8</span>
+                <div class="progress-bar"><div id="fill-html" class="progress"></div></div>
+            </div>
+        </article>
+        <article class="course-progress-card card">
+            <h3>CSS Design & Layout</h3>
+            <div class="progress-row">
+                <span id="progress-css">0 / 7</span>
+                <div class="progress-bar"><div id="fill-css" class="progress"></div></div>
+            </div>
+        </article>
+        <article class="course-progress-card card">
+            <h3>JavaScript Essentials</h3>
+            <div class="progress-row">
+                <span id="progress-js">0 / 10</span>
+                <div class="progress-bar"><div id="fill-js" class="progress"></div></div>
+            </div>
+        </article>
+        <article class="course-progress-card card">
+            <h3>Python for Web</h3>
+            <div class="progress-row">
+                <span id="progress-python">0 / 7</span>
+                <div class="progress-bar"><div id="fill-python" class="progress"></div></div>
+            </div>
+        </article>
+        <article class="course-progress-card card">
+            <h3>Data Science Basics</h3>
+            <div class="progress-row">
+                <span id="progress-data">0 / 6</span>
+                <div class="progress-bar"><div id="fill-data" class="progress"></div></div>
+            </div>
+        </article>
+        <article class="course-progress-card card">
+            <h3>UI / UX Foundations</h3>
+            <div class="progress-row">
+                <span id="progress-ux">0 / 6</span>
+                <div class="progress-bar"><div id="fill-ux" class="progress"></div></div>
+            </div>
+        </article>
+    </section>
+</main>
+
+<footer class="site-footer">
+    <p>&copy; 2026 LearnSphere. Every lesson moves you ahead.</p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

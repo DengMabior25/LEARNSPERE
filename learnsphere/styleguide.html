@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="LearnSphere style guide with branding, typography, color palette, components, and interaction examples.">
+    <title>LearnSphere | Style Guide</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="site-header">
+    <div class="brand-block">
+        <div>
+            <p class="eyebrow">Style guide</p>
+            <h1>LearnSphere design system</h1>
+            <p class="hero-copy">Review the site’s visual language, typography, colors, buttons, forms, cards, and page transitions.</p>
+        </div>
+        <div class="user-chip">
+            <span>System</span>
+            <strong>Style Guide</strong>
+        </div>
+    </div>
+
+    <div class="header-actions">
+        <nav class="main-nav" aria-label="Primary navigation">
+            <a href="index.html">Home</a>
+            <a href="courses.html">Courses</a>
+            <a href="quiz.html">Quiz</a>
+            <a href="progress.html">Progress</a>
+            <a href="essays.html">Essays</a>
+            <a href="contact.html">Contact</a>
+            <a href="styleguide.html" class="active">Style Guide</a>
+        </nav>
+        <div class="action-group">
+            <button class="ghost-button" onclick="toggleDarkMode()">Theme</button>
+            <button class="ghost-button danger" onclick="logout()">Logout</button>
+        </div>
+    </div>
+</header>
+
+<main class="page-container">
+    <section class="card style-section">
+        <h2>Brand palette</h2>
+        <div class="palette-grid">
+            <div class="swatch primary">
+                <strong>#2563eb</strong>
+                <span>Primary brand</span>
+            </div>
+            <div class="swatch accent">
+                <strong>#0ea5e9</strong>
+                <span>Accent</span>
+            </div>
+            <div class="swatch surface">
+                <strong>#ffffff</strong>
+                <span>Surface</span>
+            </div>
+            <div class="swatch surface-dark">
+                <strong>#111827</strong>
+                <span>Dark surface</span>
+            </div>
+        </div>
+    </section>
+
+    <section class="card style-section">
+        <h2>Typography</h2>
+        <p class="type-display">Heading 1 / Main page title</p>
+        <h1>Heading 1 - LearnSphere</h1>
+        <h2>Heading 2 - Course overview</h2>
+        <h3>Heading 3 - Section title</h3>
+        <p>Body copy should be clear, readable, and friendly. Use a consistent line height and spacing for modern layouts.</p>
+    </section>
+
+    <section class="card style-section">
+        <h2>Buttons</h2>
+        <div class="button-row">
+            <button class="action-button">Primary action</button>
+            <button class="secondary-button">Secondary action</button>
+            <button class="ghost-button">Ghost action</button>
+            <button class="ghost-button danger">Danger action</button>
+        </div>
+    </section>
+
+    <section class="card style-section">
+        <h2>Form components</h2>
+        <label>Text input</label>
+        <input placeholder="Enter value here">
+        <label>Textarea</label>
+        <textarea rows="4" placeholder="Write a response"></textarea>
+        <div class="form-note">Example form message: use required fields and validation feedback.</div>
+    </section>
+
+    <section class="card style-section">
+        <h2>Interactive states</h2>
+        <p>Hover and focus states help users navigate confidently.</p>
+        <div class="button-row">
+            <button class="action-button">Hover me</button>
+            <button class="ghost-button">Hover me</button>
+        </div>
+    </section>
+
+    <section class="card style-section">
+        <h2>Page transitions</h2>
+        <p>The site uses soft page fade transitions for smoother navigation.</p>
+        <div class="transition-demo card">
+            <p>Navigate between pages to see the fade animation in action.</p>
+        </div>
+    </section>
+</main>
+
+<footer class="site-footer">
+    <p>&copy; 2026 LearnSphere. Design guide for a polished learning experience.</p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
