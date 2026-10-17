@@ -92,7 +92,7 @@ function registerUser() {
     localStorage.setItem("password", password);
     localStorage.setItem("loggedIn", "true");
 
-    window.location.href = "index.html";
+    window.location.href = "/";
 }
 
 function loginUser() {
@@ -104,7 +104,7 @@ function loginUser() {
 
     if (username === savedUser && password === savedPass) {
         localStorage.setItem("loggedIn", "true");
-        window.location.href = "index.html";
+        window.location.href = "/";
     } else {
         alert("Wrong username or password");
     }
@@ -112,12 +112,13 @@ function loginUser() {
 
 function logout() {
     localStorage.removeItem("loggedIn");
-    window.location.href = "login.html";
+    window.location.href = "/login";
 }
 
 function isPublicPage() {
     const path = window.location.pathname.toLowerCase();
-    return path.includes("login.html") || path.includes("register.html") || path.includes("index.html") || path.includes("contact.html") || path.includes("styleguide.html");
+    const page = (path.replace(/\/+$/, "").split("/").pop() || "index").replace(/\.html$/, "");
+    return ["index", "login", "register", "contact", "styleguide"].includes(page);
 }
 
 function applyTheme() {
@@ -401,7 +402,7 @@ function updateProgress() {
 
 function protectPage() {
     if (!isPublicPage() && localStorage.getItem("loggedIn") !== "true") {
-        window.location.href = "login.html";
+        window.location.href = "/login";
     }
 }
 
